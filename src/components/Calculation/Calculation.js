@@ -13,7 +13,7 @@ const Calculation = (props) => (
     <Form>
       <div className="form-row">
         <FormGroup className="col-sm-9 col-md-12">
-          <label htmlFor="inputEmail4">Email</label>
+          <label htmlFor="inputEmail4">Type Number Here</label>
           <Input value={props.value} type="number" onChange={props.change}></Input>
         </FormGroup>
       </div>
