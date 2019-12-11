@@ -1,0 +1,6 @@
+{
+    "prettier.arrowParens": "always",
+    "prettier.jsxBracketSameLine": true,
+    "prettier.trailingComma": "es5",
+    "prettier.useTabs": false
+}
