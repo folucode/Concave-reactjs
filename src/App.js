@@ -61,7 +61,6 @@ class App extends React.Component {
         <SideBar
           click={(measure) => this.changeMode(measure)}
           show={this.state.sidebarOpen}
-          bgColor="blue"
         />
       );
     }
