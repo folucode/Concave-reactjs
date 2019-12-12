@@ -2,8 +2,8 @@ import React from "react";
 import "./NavBar.css";
 
 const NavBar = (props) => (
-  <header className="navbar">
-    <button className="btn-toggle" onClick={props.click}>
+  <header className="navbar" onClick={props.click}>
+    <button className="btn-toggle">
       <div className="btn-toggle__line"></div>
       <div className="btn-toggle__line"></div>
       <div className="btn-toggle__line"></div>
