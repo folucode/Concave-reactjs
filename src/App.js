@@ -6,7 +6,7 @@ import Calculation from "./components/Calculation/Calculation";
 import Answer from "./components/Answer/Answer";
 // import "bootstrap/dist/css/bootstrap.css";
 // import "./assets/css/now-ui-kit.css";
-// import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 class App extends React.Component {
   state = {
     measure: "",
@@ -67,11 +67,9 @@ class App extends React.Component {
 
     return (
       <div>
-      <NavBar click={this.toggleSidebar} />
-      {sidebarDrawer}
-        {/* <Container className="themed-container" fluid={true}>
+        <Container className="themed-container" fluid={true}>
           <NavBar click={this.toggleSidebar} />
-          
+          {sidebarDrawer}
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
               <Calculation
@@ -96,7 +94,7 @@ class App extends React.Component {
               />
             </Col>
           </Row>
-        </Container> */}
+        </Container>
       </div>
     );
   }
