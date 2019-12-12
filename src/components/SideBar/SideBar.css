@@ -1,6 +1,6 @@
 .side-bar-container {
   position: fixed;
-  width: 220px;
+  width: vw;
   height: 100%;
   left: 0;
   top: 55px;
