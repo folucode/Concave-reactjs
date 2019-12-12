@@ -55,21 +55,18 @@ class App extends React.Component {
   }
 
   render() {
-    let sidebarDrawer;
-    if (this.state.sidebarOpen) {
-      sidebarDrawer = (
-        <SideBar
-          click={(measure) => this.changeMode(measure)}
-          show={this.state.sidebarOpen}
-        />
-      );
-    }
-
     return (
       <div>
         <Container className="themed-container" fluid={true}>
           <NavBar click={this.toggleSidebar} />
-          {sidebarDrawer}
+          {this.state.sidebarOpen ? (
+            <SideBar
+              click={(measure) => this.changeMode(measure)}
+              show={this.state.sidebarOpen}
+            />
+          ) : (
+            ""
+          )}
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
               <Calculation
