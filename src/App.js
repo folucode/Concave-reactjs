@@ -56,43 +56,48 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-      {/* <Container className="container-fluid" fluid={true}> */}
-          <NavBar click={this.toggleSidebar} />
-          {this.state.sidebarOpen ? (
-            <SideBar
-              click={(measure) => this.changeMode(measure)}
-              show={this.state.sidebarOpen}
+      <div className="container-fluid">
+        {/* <Container className="container-fluid" fluid={true}> */}
+        <NavBar click={this.toggleSidebar} />
+        {this.state.sidebarOpen ? (
+          <SideBar
+            click={(measure) => this.changeMode(measure)}
+            show={this.state.sidebarOpen}
+          />
+        ) : (
+          ""
+        )}
+        {/* // <Row> */}
+        {/* //   <Col sm="12" md={{ size: 6, offset: 3 }}> */}
+        <div className="row">
+          <div className="col-sm-12 col-md-6 offset-md-3">
+            <Calculation
+              change={(event) =>
+                this.setState({ number: event.target.value, answer: "" })
+              }
+              value={this.state.number}
+              changeFrom={(event) =>
+                this.setState({ from: event.target.value, answer: "" })
+              }
+              measure={this.state.measure}
+              changeTo={(event) =>
+                this.setState({ to: event.target.value, answer: "" })
+              }
+              convert={this.convert}
             />
-          ) : (
-            ""
-          )}
-          {/* // <Row> */}
-          {/* //   <Col sm="12" md={{ size: 6, offset: 3 }}> */}
-              <Calculation
-                change={(event) =>
-                  this.setState({ number: event.target.value, answer: "" })
-                }
-                value={this.state.number}
-                changeFrom={(event) =>
-                  this.setState({ from: event.target.value, answer: "" })
-                }
-                measure={this.state.measure}
-                changeTo={(event) =>
-                  this.setState({ to: event.target.value, answer: "" })
-                }
-                convert={this.convert}
-              />
-              <Answer
-                number={this.state.number}
-                answer={this.state.answer}
-                from={this.state.from}
-                to={this.state.to}
-              />
+            <Answer
+              number={this.state.number}
+              answer={this.state.answer}
+              from={this.state.from}
+              to={this.state.to}
+            />
+          </div>
+        </div>
+
         {/* //     </Col>
         //   </Row>
         // </Container> */}
-        </div>
+      </div>
     );
   }
 }
