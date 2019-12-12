@@ -1,4 +1,4 @@
-.sidebar-container {
+.side-bar-container {
   position: fixed;
   width: 220px;
   height: 100%;
@@ -11,20 +11,20 @@
   z-index: 100;
 }
 
-.sidebar-logo {
+.side-bar-logo {
   padding: 10px 15px 10px 30px;
   font-size: 20px;
   background-color: #a38733;
 }
 
-.sidebar-navigation {
+.side-bar-navigation {
   padding: 0;
   margin: 0;
   list-style-type: none;
   position: relative;
 }
 
-.sidebar-navigation li {
+.side-bar-navigation li {
   background-color: transparent;
   position: relative;
   display: inline-block;
@@ -32,24 +32,24 @@
   line-height: 20px;
 }
 
-.sidebar-navigation li a {
+.side-bar-navigation li a {
   padding: 10px 15px 10px 30px;
   display: block;
   color: #fff;
 }
 
-.sidebar-navigation li .fa {
+.side-bar-navigation li .fa {
   margin-right: 10px;
 }
 
-.sidebar-navigation li a:active,
-.sidebar-navigation li a:hover,
-.sidebar-navigation li a:focus {
+.side-bar-navigation li a:active,
+.side-bar-navigation li a:hover,
+.side-bar-navigation li a:focus {
   text-decoration: none;
   outline: none;
 }
 
-.sidebar-navigation li::before {
+.side-bar-navigation li::before {
   background-color: #2574A9;
   position: absolute;
   content: '';
@@ -62,18 +62,18 @@
   z-index: -1;
 }
 
-.sidebar-navigation li:hover::before {
+.side-bar-navigation li:hover::before {
   width: 100%;
 }
 
-.sidebar-navigation .header {
+.side-bar-navigation .header {
   font-size: 12px;
   text-transform: uppercase;
   background-color: #151515;
   padding: 10px 15px 10px 30px;
 }
 
-.sidebar-navigation .header::before {
+.side-bar-navigation > .header::before {
   background-color: transparent;
 }
 

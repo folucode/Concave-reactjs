@@ -4,20 +4,19 @@ import './SideBar.css'
 
 const SideBar = (props) => {
 
-  let drawerClasses = 'sidebar-container';
-  if(props.show) {
-      drawerClasses = 'sidebar-container open';
+  let drawerClasses = 'side-bar-container';
+  if (props.show) {
+    drawerClasses = 'side-bar-container open';
   }
 
   return (
 
-
     <div className={drawerClasses}>
-      <div className="sidebar-logo">
+      <div className="side-bar-logo">
         Concave
       </div>
-      
-      <ul className="sidebar-navigation">
+
+      <ul className="side-bar-navigation">
         <li className="header">Select Conversion Mode</li>
         {convert().measures().map((measure) => {
           return (
