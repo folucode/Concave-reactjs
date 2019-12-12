@@ -4,8 +4,8 @@ import NavBar from "../src/components/NavBar/NavBar";
 import SideBar from "./components/SideBar/SideBar";
 import Calculation from "./components/Calculation/Calculation";
 import Answer from "./components/Answer/Answer";
-import "bootstrap/dist/css/bootstrap.css";
-import "./assets/css/now-ui-kit.css";
+// import "bootstrap/dist/css/bootstrap.css";
+// import "./assets/css/now-ui-kit.css";
 import { Container, Row, Col } from "reactstrap";
 class App extends React.Component {
   state = {
