@@ -56,8 +56,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Container className="themed-container" fluid={true}>
+        <Container className="container-fluid" fluid={true}>
           <NavBar click={this.toggleSidebar} />
           {this.state.sidebarOpen ? (
             <SideBar
@@ -92,7 +91,6 @@ class App extends React.Component {
             </Col>
           </Row>
         </Container>
-      </div>
     );
   }
 }
