@@ -4,7 +4,7 @@ import { Input } from 'reactstrap'
 
 const Select = (props) => {
 	return (
-		<Input id="inputState" type="select" onChange={props.change}>
+		<Input type="select" onChange={props.change}>
 			{convert()
 				.possibilities(props.measure)
 				.map(function (item) {

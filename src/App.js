@@ -56,7 +56,8 @@ class App extends React.Component {
 
   render() {
     return (
-        <Container className="container-fluid" fluid={true}>
+      <div>
+      {/* <Container className="container-fluid" fluid={true}> */}
           <NavBar click={this.toggleSidebar} />
           {this.state.sidebarOpen ? (
             <SideBar
@@ -66,8 +67,8 @@ class App extends React.Component {
           ) : (
             ""
           )}
-          <Row>
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
+          {/* // <Row> */}
+          {/* //   <Col sm="12" md={{ size: 6, offset: 3 }}> */}
               <Calculation
                 change={(event) =>
                   this.setState({ number: event.target.value, answer: "" })
@@ -88,9 +89,10 @@ class App extends React.Component {
                 from={this.state.from}
                 to={this.state.to}
               />
-            </Col>
-          </Row>
-        </Container>
+        {/* //     </Col>
+        //   </Row>
+        // </Container> */}
+        </div>
     );
   }
 }
