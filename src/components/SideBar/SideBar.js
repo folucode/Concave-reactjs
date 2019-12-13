@@ -1,36 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { NavItem, NavLink, Nav } from 'reactstrap';
+import classNames from 'classnames';
 import convert from 'convert-units'
-import './SideBar.css'
 
-const SideBar = (props) => {
+const SideBar = props => (
+  <div className={classNames('sidebar', { 'is-open': props.isOpen })}>
+    <div className="sidebar-header">
+      <span color="info" onClick={props.toggle} style={{ color: '#fff' }}>&times;</span>
+      <h3>Bootstrap Sidebar</h3>
+    </div>
+    <div className="side-menu">
+      <Nav vertical className="list-unstyled pb-3">
+        <p>Dummy Heading</p>
 
-  let drawerClasses = 'side-bar-container';
-  if (props.show) {
-    drawerClasses = 'side-bar-container open';
-  }
-
-  return (
-
-    <div className={drawerClasses}>
-      <div className="side-bar-logo">
-        Concave
-      </div>
-
-      <ul className="side-bar-navigation">
-        <li className="header">Select Conversion Mode</li>
         {convert().measures().map((measure) => {
           return (
-            <li onClick={() => props.click(measure)} key={measure}>
-              <a href="#">
-                {measure}
-              </a>
-            </li>
+            <NavItem onClick={() => props.click(measure)} key={measure}>
+              <NavLink>
+                <FontAwesomeIcon icon={faArrowCircleRight} className="mr-2" /> {measure}
+              </NavLink>
+            </NavItem>
           );
         })}
-      </ul>
+      </Nav>
     </div>
-
-  )
-}
+  </div>
+);
 
 export default SideBar;

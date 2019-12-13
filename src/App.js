@@ -1,12 +1,18 @@
 import React from "react";
-import convert from "convert-units";
-import NavBar from "../src/components/NavBar/NavBar";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import SideBar from "./components/SideBar/SideBar";
+// import Content from "./components/content/Content";
+
+import classNames from "classnames";
+import { Container } from "reactstrap";
+import NavBar from "./components/NavBar/NavBar";
 import Calculation from "./components/Calculation/Calculation";
 import Answer from "./components/Answer/Answer";
-// import "bootstrap/dist/css/bootstrap.css";
+import convert from "convert-units";
 // import "./assets/css/now-ui-kit.css";
-import { Container, Row, Col } from "reactstrap";
+
 class App extends React.Component {
   state = {
     measure: "",
@@ -23,7 +29,8 @@ class App extends React.Component {
     });
   };
 
-  convert = () => {
+  convert = (e) => {
+    e.preventDefault();
     try {
       let answer = convert(this.state.number)
         .from(this.state.from)
@@ -56,48 +63,39 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        {/* <Container className="container-fluid" fluid={true}> */}
-        <NavBar click={this.toggleSidebar} />
-        {this.state.sidebarOpen ? (
-          <SideBar
-            click={(measure) => this.changeMode(measure)}
-            show={this.state.sidebarOpen}
-          />
-        ) : (
-          ""
-        )}
-        {/* // <Row> */}
-        {/* //   <Col sm="12" md={{ size: 6, offset: 3 }}> */}
-        <div className="row">
-          <div className="col-sm-12 col-md-6 offset-md-3">
-          <h3>Test</h3>
-            {/* <Calculation
-              change={(event) =>
-                this.setState({ number: event.target.value, answer: "" })
-              }
-              value={this.state.number}
-              changeFrom={(event) =>
-                this.setState({ from: event.target.value, answer: "" })
-              }
-              measure={this.state.measure}
-              changeTo={(event) =>
-                this.setState({ to: event.target.value, answer: "" })
-              }
-              convert={this.convert}
-            />
-            <Answer
-              number={this.state.number}
-              answer={this.state.answer}
-              from={this.state.from}
-              to={this.state.to}
-            /> */}
-          </div>
-        </div>
+      <div className="App wrapper">
+        <SideBar
+          click={(measure) => this.changeMode(measure)}
+          toggle={this.toggleSidebar}
+          isOpen={this.state.sidebarOpen}
+        />
 
-        {/* //     </Col>
-        //   </Row>
-        // </Container> */}
+        <Container
+          fluid
+          className={classNames("content", { "is-open": this.state.isOpen })}>
+          <NavBar toggle={this.toggleSidebar} />
+          <Calculation
+            change={(event) =>
+              this.setState({ number: event.target.value, answer: "" })
+            }
+            value={this.state.number}
+            changeFrom={(event) =>
+              this.setState({ from: event.target.value, answer: "" })
+            }
+            measure={this.state.measure}
+            changeTo={(event) =>
+              this.setState({ to: event.target.value, answer: "" })
+            }
+            convert={this.convert}
+          />
+          <Answer
+            number={this.state.number}
+            answer={this.state.answer}
+            from={this.state.from}
+            to={this.state.to}
+          />
+        </Container>
+        {/* <Content toggle={this.toggleSidebar} isOpen={this.state.sidebarOpen} /> */}
       </div>
     );
   }
