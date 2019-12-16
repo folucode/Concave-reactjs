@@ -4,7 +4,7 @@ import convert from 'convert-units'
 const Answer = (props) => (
 
     props.answer ? (
-        <div className="mt-5">
+        <div className="mt-3">
             <h3>{
                 `${props.number} ${
                 convert().describe(props.from).singular

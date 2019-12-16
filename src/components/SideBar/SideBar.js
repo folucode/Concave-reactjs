@@ -9,11 +9,11 @@ const SideBar = props => (
   <div className={classNames('sidebar', { 'is-open': props.isOpen })}>
     <div className="sidebar-header">
       <span color="info" onClick={props.toggle} style={{ color: '#fff' }}>&times;</span>
-      <h3>Bootstrap Sidebar</h3>
+      <h3>Concave App.</h3>
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
-        <p>Dummy Heading</p>
+        <p>Pick a conversion mode</p>
 
         {convert().measures().map((measure) => {
           return (

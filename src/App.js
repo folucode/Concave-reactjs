@@ -3,15 +3,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import SideBar from "./components/SideBar/SideBar";
-// import Content from "./components/content/Content";
-
 import classNames from "classnames";
 import { Container } from "reactstrap";
 import NavBar from "./components/NavBar/NavBar";
 import Calculation from "./components/Calculation/Calculation";
 import Answer from "./components/Answer/Answer";
 import convert from "convert-units";
-// import "./assets/css/now-ui-kit.css";
 
 class App extends React.Component {
   state = {
@@ -37,7 +34,7 @@ class App extends React.Component {
         .to(this.state.to);
       this.setState({ answer });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -74,28 +71,40 @@ class App extends React.Component {
           fluid
           className={classNames("content", { "is-open": this.state.isOpen })}>
           <NavBar toggle={this.toggleSidebar} />
-          <Calculation
-            change={(event) =>
-              this.setState({ number: event.target.value, answer: "" })
-            }
-            value={this.state.number}
-            changeFrom={(event) =>
-              this.setState({ from: event.target.value, answer: "" })
-            }
-            measure={this.state.measure}
-            changeTo={(event) =>
-              this.setState({ to: event.target.value, answer: "" })
-            }
-            convert={this.convert}
-          />
-          <Answer
-            number={this.state.number}
-            answer={this.state.answer}
-            from={this.state.from}
-            to={this.state.to}
-          />
+          <div className="row">
+            <div className="col-sm-12 col-md-6 offset-md-3">
+              {this.state.measure === "" ? (
+                <div className="alert alert-danger">
+                  <h3 className="text-center">
+                    Pick a conversion mode from the sidebar to get started
+                  </h3>
+                </div>
+              ) : (
+                ""
+              )}
+              <Calculation
+                change={(event) =>
+                  this.setState({ number: event.target.value, answer: "" })
+                }
+                value={this.state.number}
+                changeFrom={(event) =>
+                  this.setState({ from: event.target.value, answer: "" })
+                }
+                measure={this.state.measure}
+                changeTo={(event) =>
+                  this.setState({ to: event.target.value, answer: "" })
+                }
+                convert={this.convert}
+              />
+              <Answer
+                number={this.state.number}
+                answer={this.state.answer}
+                from={this.state.from}
+                to={this.state.to}
+              />
+            </div>
+          </div>
         </Container>
-        {/* <Content toggle={this.toggleSidebar} isOpen={this.state.sidebarOpen} /> */}
       </div>
     );
   }
