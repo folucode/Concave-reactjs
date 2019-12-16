@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Calculation from "./components/Calculation/Calculation";
 import Answer from "./components/Answer/Answer";
 import convert from "convert-units";
+import ReactGA from 'react-ga'
 
 class App extends React.Component {
   state = {
@@ -59,6 +60,8 @@ class App extends React.Component {
   }
 
   render() {
+    ReactGA.initialize('UA-154668045-1');
+    ReactGA.pageview('/');
     return (
       <div className="App wrapper">
         <SideBar
@@ -80,8 +83,8 @@ class App extends React.Component {
                   </h3>
                 </div>
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <Calculation
                 change={(event) =>
                   this.setState({ number: event.target.value, answer: "" })
@@ -104,10 +107,16 @@ class App extends React.Component {
               />
             </div>
           </div>
+          <footer class="footer">
+
+            <p class="text-center mb-0">Created with <span className="has-danger">&#10084;</span> by <a href="https://twitter.com/chukwutosin_" target="_blank" className="text-danger" rel="noopener noreferrer">ChukwuTosin</a> </p>
+
+          </footer>
         </Container>
       </div>
     );
   }
+
 }
 
 export default App;
