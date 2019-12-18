@@ -49,6 +49,7 @@ class App extends React.Component {
       from,
       to,
       answer: "",
+      sidebarOpen: false
     });
   };
 

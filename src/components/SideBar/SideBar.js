@@ -15,7 +15,7 @@ const SideBar = props => (
       <Nav vertical className="list-unstyled pb-3">
         <p>Pick a conversion mode</p>
 
-        {convert().measures().map((measure) => {
+        {convert().measures().sort().map((measure) => {
           return (
             <NavItem onClick={() => props.click(measure)} key={measure}>
               <NavLink>
